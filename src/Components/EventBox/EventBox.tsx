@@ -1,11 +1,13 @@
 import React from 'react';
 import { Box, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const EventBox: React.FC = () => {
+    const navigate = useNavigate();
+
 
     const handleNavigate = () => {
-        console.log('test');
-
+        navigate('/party-type');
     };
 
     return (
@@ -13,7 +15,7 @@ const EventBox: React.FC = () => {
             <Box
                 display="flex" justifyContent="space-between" alignItems="center"
                 sx={{
-                    height: '30%', // Set the height of the box
+                    height: '28%', // Set the height of the box
                     width: '100%', // Set the width of the box
                     backgroundImage: 'linear-gradient(to right, #50586A, #1E2530)', // Grey gradient
                     borderRadius: '5px'
