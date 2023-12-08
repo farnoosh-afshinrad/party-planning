@@ -1,8 +1,14 @@
 import React from 'react';
 import { Box, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import useEventDateState from '../../stores/useEventDateState';
+import UpcommingEvents from './components/UpcommingEvents';
+import { StyledEventBox } from './components/StyledEventBox';
+import PassedEvents from './components/passedEvents';
 
 const EventBox: React.FC = () => {
+    const pastEvents = useEventDateState(state => state.pastEvents);
+
     const navigate = useNavigate();
 
 
@@ -12,12 +18,14 @@ const EventBox: React.FC = () => {
 
     return (
         <>
-            <Box
+            <UpcommingEvents />
+            <PassedEvents/>
+            {/* <Box
                 display="flex" justifyContent="space-between" alignItems="center"
                 sx={{
-                    height: '28%', // Set the height of the box
-                    width: '100%', // Set the width of the box
-                    backgroundImage: 'linear-gradient(to right, #50586A, #1E2530)', // Grey gradient
+                    height: '28%', 
+                    width: '100%', 
+                    backgroundImage: 'linear-gradient(to right, #50586A, #1E2530)',
                     borderRadius: '5px'
                 }}
             >
@@ -30,16 +38,7 @@ const EventBox: React.FC = () => {
                         CREATE A NEW EVANT
                     </Button>
                 </Box>
-                <Box display="flex" justifyContent="center" p={2}>
-                    <Button variant="contained" color="primary"
-                        sx={{
-                            height: "30%"
-                        }}
-                        onClick={handleNavigate}>
-                        Go 
-                    </Button>
-                </Box>
-            </Box>
+            </Box> */}
 
         </>
 
