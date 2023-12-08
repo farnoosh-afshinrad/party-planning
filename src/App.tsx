@@ -9,9 +9,10 @@ import './App.css'
 import EvenType from './Components/EventType/EventType';
 import EventSize from './Components/EventSize/EventSize';
 import EventForm from './Components/EventForm/EventForm';
+import EventOptions from './Components/EventOptions/EventOptions';
+import { questions } from './utils/questions';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>
@@ -20,7 +21,9 @@ function App() {
         <Route path="/party-type" element={<EvenType />} />
         <Route path="/party-size" element={<EventSize />} />
         <Route path="/party-form" element={<EventForm />} />
-        // Define other routes as needed
+          {questions.map((question) => (
+            <Route key={question.id} path={`/party-details/${question.id}`} element={<EventOptions questionId={question.id} />} />
+          ))}
       </Routes>
     </BrowserRouter>
   )
