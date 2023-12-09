@@ -9,10 +9,12 @@ import EventDetailsLayout from '../EventDetailsLayout/EventDetailsLayout';
 
 const EventOptions: React.FC<{ questionId: string }> = ({ questionId }) => {
     const navigate = useNavigate();
+    const isAnswered = useQuizStore((state) => state.isAnswered[questionId]);
+    const setIsAnswered = useQuizStore((state) => state.setIsAnswered);
     const answer = useQuizStore((state) => state.answers[questionId]);
-    const isAnswerNotSelected = answer !== null;
     const currentIndex = questions.findIndex(q => q.id === questionId);    
     const currentQuestion = questions.find(q => q.id === questionId);
+    
 
     const handleNext = () => {
         if (currentIndex < questions.length - 1) {
@@ -25,7 +27,7 @@ const EventOptions: React.FC<{ questionId: string }> = ({ questionId }) => {
 
     return (
         <EventDetailsLayout handleNextBtn={handleNext} disabled=
-            {!isAnswerNotSelected}>
+            {!isAnswered}>
             <Box width='100%'>
                 <LinearProgress variant="determinate" value={(currentIndex + 1) * 10 + 30} sx={{ marginBottom: 2 }} />
                 {currentQuestion && (
@@ -33,7 +35,7 @@ const EventOptions: React.FC<{ questionId: string }> = ({ questionId }) => {
                         questionId={currentQuestion.id}
                         question={currentQuestion.text}
                         options={currentQuestion.options}
-                        onSelect={() => { }}
+                        onSelect={setIsAnswered(questionId, Boolean(answer))}
                     />
                 )}
 
