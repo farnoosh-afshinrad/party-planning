@@ -10,13 +10,11 @@ import EventDetailsLayout from '../EventDetailsLayout/EventDetailsLayout';
 const EventOptions: React.FC<{ questionId: string }> = ({ questionId }) => {
     const navigate = useNavigate();
     const answer = useQuizStore((state) => state.answers[questionId]);
-    const isAnswerSelected = answer !== null;
+    const isAnswerNotSelected = answer !== null;
+    const currentIndex = questions.findIndex(q => q.id === questionId);    
 
-    console.log(answer);
-    const currentIndex = questions.findIndex(q => q.id === questionId);
-
-
-
+    console.log(isAnswerNotSelected);
+    
     const handleNext = () => {
         if (currentIndex < questions.length - 1) {
             // Navigate to the next question
@@ -30,7 +28,7 @@ const EventOptions: React.FC<{ questionId: string }> = ({ questionId }) => {
 
     return (
         <EventDetailsLayout handleNextBtn={handleNext} disabled=
-            {!isAnswerSelected}>
+            {!isAnswerNotSelected}>
             <Box width='100%'>
                 <LinearProgress variant="determinate" value={(currentIndex + 1) * 10 + 30} sx={{ marginBottom: 2 }} />
                 {currentQuestion && (

@@ -8,6 +8,7 @@ import PassedEvents from './components/passedEvents';
 
 const EventBox: React.FC = () => {
     const pastEvents = useEventDateState(state => state.pastEvents);
+    const upcomingEvents = useEventDateState(state => state.upcomingEvents)
 
     const navigate = useNavigate();
 
@@ -15,16 +16,21 @@ const EventBox: React.FC = () => {
     const handleNavigate = () => {
         navigate('/party-type');
     };
+    console.log(upcomingEvents);
+    
 
     return (
         <>
-            <UpcommingEvents />
-            <PassedEvents/>
+     
+            { upcomingEvents &&  <UpcommingEvents />}
+            { pastEvents && <PassedEvents />}
+   
+
             {/* <Box
                 display="flex" justifyContent="space-between" alignItems="center"
                 sx={{
-                    height: '28%', 
-                    width: '100%', 
+                    height: '28%',
+                    width: '100%',
                     backgroundImage: 'linear-gradient(to right, #50586A, #1E2530)',
                     borderRadius: '5px'
                 }}

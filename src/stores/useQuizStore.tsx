@@ -1,5 +1,5 @@
 import create from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist}  from 'zustand/middleware';
 
 interface QuizState {
     answers: { [questionId: string]: string | null };

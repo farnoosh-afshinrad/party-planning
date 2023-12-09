@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Card, Grid, LinearProgress, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import MainHeader from '../MainHeader/MainHeader';
 
 const EventSize: React.FC = () => {
 
@@ -12,6 +13,7 @@ const EventSize: React.FC = () => {
 
     return (
         <Box sx={{ width: '100%' }}>
+            <MainHeader/>
             <LinearProgress variant="determinate" value={20} sx={{ marginBottom: 2 }} />
             <Typography color='white' textAlign='left' margin='15px'>
                 What is the occassion?

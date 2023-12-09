@@ -5,12 +5,12 @@ import theme from './theme/theme';
 import EventBox from './Components/EventBox/EventBox';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
 import EvenType from './Components/EventType/EventType';
 import EventSize from './Components/EventSize/EventSize';
 import EventForm from './Components/EventForm/EventForm';
 import EventOptions from './Components/EventOptions/EventOptions';
 import { questions } from './utils/questions';
+import EventTodos from './Components/EventTodos/EventTodos';
 
 function App() {
 
@@ -24,6 +24,7 @@ function App() {
           {questions.map((question) => (
             <Route key={question.id} path={`/party-details/${question.id}`} element={<EventOptions questionId={question.id} />} />
           ))}
+        <Route path='/party/to-do' element={<EventTodos/> } />
       </Routes>
     </BrowserRouter>
   )
