@@ -1,7 +1,4 @@
-import { useState } from 'react'
-import { ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import theme from './theme/theme';
 import EventBox from './Components/EventBox/EventBox';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'

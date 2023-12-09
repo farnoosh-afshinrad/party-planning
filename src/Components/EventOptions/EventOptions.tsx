@@ -12,9 +12,8 @@ const EventOptions: React.FC<{ questionId: string }> = ({ questionId }) => {
     const answer = useQuizStore((state) => state.answers[questionId]);
     const isAnswerNotSelected = answer !== null;
     const currentIndex = questions.findIndex(q => q.id === questionId);    
+    const currentQuestion = questions.find(q => q.id === questionId);
 
-    console.log(isAnswerNotSelected);
-    
     const handleNext = () => {
         if (currentIndex < questions.length - 1) {
             // Navigate to the next question
@@ -23,8 +22,6 @@ const EventOptions: React.FC<{ questionId: string }> = ({ questionId }) => {
             navigate('/')
         }
     };
-
-    const currentQuestion = questions.find(q => q.id === questionId);
 
     return (
         <EventDetailsLayout handleNextBtn={handleNext} disabled=

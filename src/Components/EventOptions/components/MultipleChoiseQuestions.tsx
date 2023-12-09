@@ -1,4 +1,3 @@
-// MultipleChoiceQuestion.tsx
 import React from 'react';
 import { useQuizStore } from '../../../stores/useQuizStore';
 import Radio from '@mui/material/Radio';
