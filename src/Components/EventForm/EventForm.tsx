@@ -7,6 +7,7 @@ import EventDetailsLayout from '../EventDetailsLayout/EventDetailsLayout';
 import { useNavigate } from 'react-router-dom';
 import useInputStore from '../../stores/useInputStore';
 import useEventDateState from '../../stores/useEventDateState';
+import { fieldtypeToTitle } from '../../utils/fieldtypeToTitle';
 
 interface FormData {
     text: string;
@@ -47,7 +48,7 @@ const EventForm: React.FC = () => {
                                 rules={{ required: true }}
                                 render={({ field }) => (
                                     <>
-                                        <label htmlFor={key} style={{ color: 'white', textAlign: 'left' }} >{key}</label>
+                                        <label htmlFor={key} style={{ color: 'white', textAlign: 'left' }} >{fieldtypeToTitle(key)}</label>
                                         <StyledTextField fullWidth
                                             {...field}
                                             type={key}

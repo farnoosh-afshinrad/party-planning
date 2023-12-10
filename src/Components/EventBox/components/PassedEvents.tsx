@@ -9,7 +9,7 @@ const PassedEvents: React.FC = () => {
             <Typography variant="h5" textAlign='left' color='white' sx={{ marginTop: '2rem', padding: '0.5rem' }}>Previous House Parties</Typography>
             <Grid container spacing={2}>
                 {pastEvents.map((evant) => (
-                    <Grid item xs={12} sm={6} md={4} lg={3} >
+                    <Grid item xs={12} sm={9} md={7} lg={5} >
                         <Card variant="outlined" sx={{ padding: 2, textAlign: 'center', backgroundColor: "#1C1C1C", color: 'white', cursor: 'pointer' }}
                         >
                             <Typography textAlign='left' sx={{fontStyle:'bold'}} >{evant.text}</Typography>

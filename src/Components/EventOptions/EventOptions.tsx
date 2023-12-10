@@ -35,6 +35,7 @@ const EventOptions: React.FC<{ questionId: string }> = ({ questionId }) => {
                         questionId={currentQuestion.id}
                         question={currentQuestion.text}
                         options={currentQuestion.options}
+                        svg={currentQuestion.svg}
                         onSelect={setIsAnswered(questionId, Boolean(answer))}
                     />
                 )}

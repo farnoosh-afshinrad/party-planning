@@ -2,8 +2,21 @@ import React from 'react';
 import { Box, Card, Grid, LinearProgress, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import MainHeader from '../MainHeader/MainHeader';
+import cake from '../../assets/cake.svg';
+import anniversary from '../../assets/anniversary.svg';
+import dinner from '../../assets/dinner.svg';
+import meetup from '../../assets/meetup.svg';
+import other from '../../assets/other.svg';
 
 const EvenType: React.FC = () => {
+
+    const events = [
+        { name: 'Birthday', svg: cake },
+        { name: 'Anniversary', svg: anniversary },
+        { name: 'Dinner', svg: dinner },
+        { name: 'Meet up', svg: meetup },
+        { name: 'Other', svg: other },
+    ];
 
     const navigate = useNavigate()
 
@@ -20,12 +33,13 @@ const EvenType: React.FC = () => {
                     What is the occassion?
                 </Typography>
                 <Grid container spacing={2}>
-                    {[1, 2, 3, 4, 5].map((number) => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} key={number}>
+                    {events.map((event) => (
+                        <Grid item xs={12} sm={8} md={6} lg={4}>
                             <Card variant="outlined" sx={{ padding: 2, textAlign: 'center', backgroundColor: "#1C1C1C", color: 'purple', cursor: 'pointer' }}
                                 onClick={handleNavigate}
                             >
-                                <Typography variant="h5" >{number}</Typography>
+                                <img src={event.svg } />
+                                <Typography color='white' sx={{fontSize:'15px', fontStyle:'bold'}} >{event.name}</Typography>
                             </Card>
                         </Grid>
                     ))}
