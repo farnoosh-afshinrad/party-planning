@@ -1,3 +1,14 @@
+# Proof of Concept
+In this project I have used Zustand as the statemaneger because the scale of the project was really small, which gave the oppurtunity to me to persist data in an easy going way. 
+In term of UI kit, I utilized MUI V5 which provides an styled API working same as styled-component whitout installing additional libraries.
+
+# Run Project
+```
+npm install
+npm run dev
+```
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
